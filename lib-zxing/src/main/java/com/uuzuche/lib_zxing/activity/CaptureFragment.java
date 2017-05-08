@@ -156,6 +156,12 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
             handler = new CaptureActivityHandler(this, decodeFormats, characterSet, viewfinderView);
         }
     }
+    
+    // restart to capture QR code again. used for multiple scan or if the QR is invalid, need to scan another one.
+    public void restartCamera(){
+        if(handler != null)
+            handler.restartPreviewAndDecode();
+    }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width,
